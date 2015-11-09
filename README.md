@@ -28,3 +28,6 @@ class MyEntity
     private $link;
 }
 ```
+
+#### Attributions
+Inspired by [beberlei/DoctrineExtensions](https://github.com/beberlei/DoctrineExtensions)
