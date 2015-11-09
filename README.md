@@ -1,4 +1,4 @@
-# doctrine-additions
+# Doctrine Additions
 
     
 This library offers a custom `UrlType` for Doctrine 2, based on `league/url`. 
