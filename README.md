@@ -5,7 +5,7 @@ This library offers a custom `UrlType` for Doctrine 2, based on `league/url`.
 
 For additional information on custom doctrine types see [here](http://doctrine-orm.readthedocs.org/projects/doctrine-orm/en/latest/cookbook/custom-mapping-types.html). 
 
-To use this type: 
+### Usage:
 
 In your Bootstrap file: 
 ```
