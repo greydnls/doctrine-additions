@@ -3,7 +3,7 @@
     "description": "Additional Doctrine Types and helpers",
     "type": "library",
     "require": {
-        "php": ">=5.4"
+        "php": ">=5.5"
     },
     "require-dev": {
         "doctrine/orm": "^2.5",
