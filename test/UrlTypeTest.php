@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Kayladnls\DoctrineAdditions\Test;
 
 use Doctrine\ORM\Tools\SchemaTool;
@@ -49,9 +48,13 @@ class UrlTypeTest extends \PHPUnit_Framework_TestCase
     public function testDateGetter()
     {
         $entity = $this->em->find(LinkedEntity::class, 1);
+
         $url = Url::createFromUrl("http://github.com/kayladnls?q=is%3Aopen+is%3Apr+author%3Akayladnls");
 
         $this->assertInstanceOf(Url::class, $entity->link);
+        $this->assertEquals($url->getBaseUrl(), $entity->link->getBaseUrl());
+        $this->assertEquals($url->getQuery(), $entity->link->getQuery());
+        $this->assertEquals($url->getScheme(), $entity->link->getScheme());
         $this->assertEquals($url, $entity->link);
     }
 
