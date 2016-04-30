@@ -7,7 +7,7 @@
     },
     "require-dev": {
         "doctrine/orm": "^2.5",
-        "league/url": "^3.3",
+        "league/uri": "^4.1.1",
         "phpunit/phpunit": ">=4.8"
     },
     "license": "MIT",
@@ -18,7 +18,7 @@
         }
     ],
     "suggest": {
-        "league/url": "For use with the UrlType"
+        "league/uri": "For use with the UrlType"
     },
     "autoload": {
         "psr-4": {"Kayladnls\\DoctrineAdditions\\" : "src/"}
