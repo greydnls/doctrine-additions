@@ -25,4 +25,12 @@ class UrlType extends StringType
     {
         return self::URL;
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function requiresSQLCommentHint(AbstractPlatform $platform)
+    {
+        return true;
+    }
 }
