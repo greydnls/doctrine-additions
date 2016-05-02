@@ -5,7 +5,7 @@ namespace Kayladnls\DoctrineAdditions\Test;
 use Doctrine\ORM\Tools\SchemaTool;
 use Kayladnls\DoctrineAdditions\Test\Entity\LinkedEntity;
 use Kayladnls\DoctrineAdditions\Type\UrlType;
-use League\Url\Url;
+use League\Uri;
 
 class UrlTypeTest extends \PHPUnit_Framework_TestCase
 {
@@ -40,7 +40,7 @@ class UrlTypeTest extends \PHPUnit_Framework_TestCase
 
         $url = new LinkedEntity();
         $url->id = 1;
-        $url->link = Url::createFromUrl("http://github.com/kayladnls?q=is%3Aopen+is%3Apr+author%3Akayladnls");
+        $url->link = Uri\Schemes\Http::createFromString("http://github.com/kayladnls?q=is%3Aopen+is%3Apr+author%3Akayladnls");
         $this->em->persist($url);
         $this->em->flush();
     }
@@ -49,12 +49,9 @@ class UrlTypeTest extends \PHPUnit_Framework_TestCase
     {
         $entity = $this->em->find(LinkedEntity::class, 1);
 
-        $url = Url::createFromUrl("http://github.com/kayladnls?q=is%3Aopen+is%3Apr+author%3Akayladnls");
+        $url = Uri\Schemes\Http::createFromString("http://github.com/kayladnls?q=is%3Aopen+is%3Apr+author%3Akayladnls");
 
-        $this->assertInstanceOf(Url::class, $entity->link);
-        $this->assertEquals($url->getBaseUrl(), $entity->link->getBaseUrl());
-        $this->assertEquals($url->getQuery(), $entity->link->getQuery());
-        $this->assertEquals($url->getScheme(), $entity->link->getScheme());
+        $this->assertInstanceOf(Uri\Schemes\Http::class, $entity->link);
         $this->assertEquals($url, $entity->link);
     }
 
@@ -62,7 +59,7 @@ class UrlTypeTest extends \PHPUnit_Framework_TestCase
     {
         $url = new LinkedEntity();
         $url->id = 2;
-        $url->link = Url::createFromUrl("http://github.com/kayladnls?q=is%3Aopen+is%3Apr+author%3Akayladnls");
+        $url->link = Uri\Schemes\Http::createFromString("http://github.com/kayladnls?q=is%3Aopen+is%3Apr+author%3Akayladnls");
         $this->em->persist($url);
         $this->em->flush();
     }

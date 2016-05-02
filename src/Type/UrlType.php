@@ -4,7 +4,7 @@ namespace Kayladnls\DoctrineAdditions\Type;
 
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\StringType;
-use League\Url\Url;
+use League\Uri;
 
 class UrlType extends StringType
 {
@@ -15,7 +15,7 @@ class UrlType extends StringType
      */
     public function convertToPHPValue($value, AbstractPlatform $platform)
     {
-        return Url::createFromUrl($value);
+        return Uri\Schemes\Http::createFromString($value);
     }
 
     /**
